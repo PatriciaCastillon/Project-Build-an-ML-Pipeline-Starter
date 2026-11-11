@@ -6,6 +6,13 @@ to be retrained with the same cadence, necessitating an end-to-end pipeline that
 
 In this project you will build such a pipeline.
 
+
+# NYC Airbnb Analysis
+
+This project examines Airbnb listing data for New York City, with experiments and results tracked in Weights & Biases. The full project, including runs, metrics, and artifacts, is available here:
+
+[NYC Airbnb Project on Weights & Biases](https://forge.coreweave.com/wandb/patriciacastillon/nyc_airbnb?nw=nwuserpatriciacastillon11)
+
 ## Table of contents
 
 - [Preliminary steps](#preliminary-steps)
