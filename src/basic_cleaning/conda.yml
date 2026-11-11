@@ -8,4 +8,3 @@ dependencies:
   - pandas=2.3.2
   - pip:
       - wandb==0.24.0
-
