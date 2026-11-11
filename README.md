@@ -13,6 +13,8 @@ This project examines Airbnb listing data for New York City, with experiments an
 
 [NYC Airbnb Project on Weights & Biases](https://forge.coreweave.com/wandb/patriciacastillon/nyc_airbnb?nw=nwuserpatriciacastillon11)
 
+[Github Repo](https://github.com/PatriciaCastillon/Project-Build-an-ML-Pipeline-Starter)
+
 ## Table of contents
 
 - [Preliminary steps](#preliminary-steps)
