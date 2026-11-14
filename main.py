@@ -55,8 +55,8 @@ def go(config: DictConfig):
                 "main",
                 parameters={
                     "input_artifact": "sample.csv:latest",
-                    "output_artifact": "clean_sample.csv",
-                    "output_type": "clean_sample",
+                    "output_artifact": "clean_data.csv",
+                    "output_type": "clean_data",
                     "output_description": "Data with price outliers removed",
                     "min_price": config["etl"]["min_price"],
                     "max_price": config["etl"]["max_price"],
@@ -69,8 +69,8 @@ def go(config: DictConfig):
                 os.path.join(hydra.utils.get_original_cwd(), "src", "data_check"),
                 "main",
                 parameters={
-                    "csv": "clean_sample.csv:latest",
-                    "ref": "clean_sample.csv:reference",
+                    "csv": "clean_.csv:latest",
+                    "ref": "clean_.csv:reference",
                     "kl_threshold": config["data_check"]["kl_threshold"],
                     "min_price": config["etl"]["min_price"],
                     "max_price": config["etl"]["max_price"],
@@ -83,7 +83,7 @@ def go(config: DictConfig):
                 f"{config['main']['components_repository']}/train_val_test_split",
                 "main",
                 parameters={
-                    "input": "clean_sample.csv:latest",
+                    "input": "clean_.csv:latest",
                     "test_size": config["modeling"]["test_size"],
                     "random_seed": config["modeling"]["random_seed"],
                     "stratify_by": config["modeling"]["stratify_by"],
@@ -111,7 +111,7 @@ def go(config: DictConfig):
                     "stratify_by": config["modeling"]["stratify_by"],
                     "rf_config": rf_config,
                     "max_tfidf_features": config["modeling"]["max_tfidf_features"],
-                    "output_artifact": "random_forest_export",
+                    "output_artifact": "model_export",
                 },
             )
 
@@ -122,7 +122,7 @@ def go(config: DictConfig):
                 f"{config['main']['components_repository']}/test_regression_model",
                 "main",
                 parameters={
-                    "mlflow_model": "random_forest_export:prod",
+                    "mlflow_model": "model_export:prod",
                     "test_dataset": "test_data.csv:latest",
                 },
             )
